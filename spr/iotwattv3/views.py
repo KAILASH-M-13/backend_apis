@@ -27,7 +27,7 @@ def SignInView(request):
             username = data.get('username')
             password = data.get('password')
             secret_hash = get_secret_hash(username, COGNITO_CLIENT_ID,COGNITO_CLIENT_SECRET)
-            response = client.initiate_auth(
+            '''response = client.initiate_auth(
                 ClientId=COGNITO_CLIENT_ID,
                 AuthFlow='USER_PASSWORD_AUTH',
                 AuthParameters={
@@ -35,7 +35,7 @@ def SignInView(request):
                     'PASSWORD': password,
                     'SECRET_HASH': secret_hash
                 }
-            )
+            )'''
             return JsonResponse({'message': 'Success'}, status=200)
         except:
             return JsonResponse({'message': 'Failed'}, status=401)
